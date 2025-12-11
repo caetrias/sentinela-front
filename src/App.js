@@ -22,8 +22,6 @@ export default function App() {
     switch (currentPage) {
       case 'home':
         return <Home />;
-      case 'dashboards':
-        return <Dashboards />;
       case 'previsoes':
         return <Previsoes />;
       case 'sobre':

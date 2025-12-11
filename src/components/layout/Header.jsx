@@ -39,7 +39,6 @@ const NavButton = styled(Button)(({ theme, active }) => ({
 export const Header = ({ currentPage, onNavigate }) => {
   const menuItems = [
     { id: 'home', label: 'Home' },
-    { id: 'dashboards', label: 'Dashboards' },
     { id: 'previsoes', label: 'Previsões' },
     { id: 'sobre', label: 'Sobre Nós' },
     { id: 'api', label: 'Guia da API' }
