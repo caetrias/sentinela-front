@@ -8,6 +8,7 @@ export const Previsoes = () => {
 
   const [latitude, setLatitude] = React.useState('');
   const [longitude, setLongitude] = React.useState('');
+  const [daysWithoutRain, setDaysWithoutRain] = React.useState('');
   const [file, setFile] = useState(null);
 
   const handleStartSystemClick = async (event) => {
@@ -32,7 +33,8 @@ export const Previsoes = () => {
   const handlePredictionClick = async (event) => {
     event.preventDefault();
     try {
-      const res = await axios.get(`https://sentinela-bii6.onrender.com/sent/predict${latitude}/${longitude}`);
+      const res = await axios.get(`https://sentinela-bii6.onrender.com/sent/predict?latitude=${latitude}&longitude=${longitude}&days_without_rain=${daysWithoutRain}`);
+      console.log(res.data);
     } catch (err) {
       console.error("ERRO COMPLETO:", err);
       if (err.response) {
@@ -82,6 +84,12 @@ export const Previsoes = () => {
             variant="outlined"
             value={longitude}
             onChange={(e) => setLongitude(e.target.value)}
+          />
+          <TextField
+            label="Dias sem chuva"
+            variant="outlined"
+            value={daysWithoutRain}
+            onChange={(e) => setDaysWithoutRain(e.target.value)}
           />
           <div>
             <input type="file" onChange={handleFile} />
