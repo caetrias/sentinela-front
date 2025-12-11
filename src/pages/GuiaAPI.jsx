@@ -116,9 +116,6 @@ python -m pip install .`}
           <Typography sx={{ color: 'rgba(255,255,255,0.8)' }}>
             - Se ocorrerem erros 404 ao carregar dados ou imagens, verifique caminhos e permissões locais.
           </Typography>
-          <Typography sx={{ color: 'rgba(255,255,255,0.8)', mt: 1 }}>
-            - Documentação completa será adicionada futuramente no repositório.
-          </Typography>
         </Box>
 
       </Container>

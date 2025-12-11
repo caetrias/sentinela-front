@@ -4,7 +4,7 @@ import { styled } from '@mui/system';
 import { Header } from './components/layout/Header';
 import { Home } from './pages/Home';
 import { Dashboards } from './pages/Dashboards';
-import { Previsoes } from './pages/Previsoes';
+import { Operacoes } from './pages/Previsoes';
 import { Sobre } from './pages/Sobre';
 import { GuiaAPI } from './pages/GuiaAPI';
 
@@ -22,8 +22,8 @@ export default function App() {
     switch (currentPage) {
       case 'home':
         return <Home />;
-      case 'previsoes':
-        return <Previsoes />;
+      case 'operacoes':
+        return <Operacoes />;
       case 'sobre':
         return <Sobre />;
       case 'api':

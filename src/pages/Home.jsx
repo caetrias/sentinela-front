@@ -54,7 +54,7 @@ export const Home = () => {
               letterSpacing: '0.1em',
             }}
           >
-            subtítulo legal
+            Sistema de monitoramento e análise ambiental
           </Typography>
 
           <StyledButton>
