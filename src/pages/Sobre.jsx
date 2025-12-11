@@ -25,57 +25,57 @@ const teamMembers = [
   { 
     id: 1,
     name: 'Gabriel Caetano', 
-    role: 'Developer', 
-    image: '/path/to/image1.jpg',
+    role: 'Frontend Developer', 
+    image: '/assets/team/gabriel-caetano.jpg',
     placeholder: 'GC'
   },
   { 
     id: 2,
     name: 'Sofia Valadares', 
-    role: 'Developer', 
-    image: '/path/to/image2.jpg',
+    role: 'Backend Developer', 
+    image: '/assets/team/sofia-valadares.jpg',
     placeholder: 'SV'
   },
   { 
     id: 3,
     name: 'Danilo Melo', 
-    role: 'Developer', 
-    image: '/path/to/image3.jpg',
+    role: 'Data Cientist and Tech Lead', 
+    image: '/assets/team/danilo-melo.jpg',
     placeholder: 'DM'
   },
   { 
     id: 4,
     name: 'João Fittipaldi', 
-    role: 'Developer', 
-    image: '/path/to/image4.jpg',
+    role: 'QA', 
+    image: '/assets/team/joao-fittipaldi.jpg',
     placeholder: 'JF'
   },
   { 
     id: 5,
     name: 'Marina Frias', 
     role: 'Developer', 
-    image: '/path/to/image5.jpg',
+    image: '/assets/team/marina-frias.jpg',
     placeholder: 'MF'
   },
   { 
     id: 6,
     name: 'Luiza Calife', 
-    role: 'Developer', 
-    image: '/path/to/image6.jpg',
+    role: 'Designer', 
+    image: '/assets/team/luiza-calife.jpg',
     placeholder: 'LC'
   },
   { 
     id: 7,
     name: 'Arthur Suzuki', 
-    role: 'Developer', 
-    image: '/path/to/image7.jpg',
+    role: 'Project Manager', 
+    image: '/assets/team/arthur-suzuki.jpg',
     placeholder: 'AS'
   },
   { 
     id: 8,
     name: 'Guilherme Araújo', 
     role: 'Developer', 
-    image: '/path/to/image8.jpg',
+    image: '/assets/team/guilherme-araujo.png',
     placeholder: 'GA'
   },
 ];
@@ -112,10 +112,12 @@ export const Sobre = () => {
             {teamMembers.map((member) => (
               <Grid item xs={12} sm={6} md={3} key={member.id}>
                 <StyledCard>
-                  {/* Simplificando a lógica de verificação da imagem */}
-                  <StyledAvatar>
-                    {member.placeholder}
-                  </StyledAvatar>
+                  {/* Renderiza a imagem quando existir; caso contrário mostra as iniciais */}
+                  {member.image ? (
+                    <StyledAvatar src={member.image} alt={member.name} variant="square" />
+                  ) : (
+                    <StyledAvatar>{member.placeholder}</StyledAvatar>
+                  )}
                   
                   <CardContent>
                     <Typography variant="h6" sx={{ fontWeight: 600 }}>
@@ -154,8 +156,9 @@ export const Sobre = () => {
               mb: 3
             }}
           >
-            Um texto muito bom e convincente que explique porque estamos fazendo o que 
-            fazemos e como vamos atingir o objetivo que desejamos atingir!
+            O Grupo Canidé reúne estudantes comprometidos em usar tecnologia para causar uma pequena,
+            porém significativa, mudança no mundo. Trabalhamos de forma colaborativa para aprender, construir
+            soluções práticas e apoiar a preservação do nosso bioma, sempre com foco em ensino e impacto social.
           </Typography>
           <Typography 
             variant="h6" 
