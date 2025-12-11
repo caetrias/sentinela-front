@@ -59,7 +59,11 @@ export const Previsoes = () => {
     event.preventDefault();
 
     try {
-      const res = await axios.get(`https://sentinela-bii6.onrender.com/sent/image${file}`);
+      const formData = new FormData();
+      formData.append('file', file);
+      const res = await axios.post('https://sentinela-bii6.onrender.com/sent/image', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      });
       console.log(res.data);
     } catch (err) {
       console.error("ERRO COMPLETO:", err);
