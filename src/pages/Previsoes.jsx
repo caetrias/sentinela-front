@@ -10,13 +10,18 @@ export const Previsoes = () => {
   const [longitude, setLongitude] = React.useState('');
   const [daysWithoutRain, setDaysWithoutRain] = React.useState('');
   const [file, setFile] = useState(null);
+  const [isStarting, setIsStarting] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
 
   const handleStartSystemClick = async (event) => {
     event.preventDefault();
+    setIsStarting(true);
 
     try {
       const res = await axios.get("https://sentinela-bii6.onrender.com/sent/ping");
       console.log(res.data);
+      setHasStarted(true);
+
     } catch (err) {
       console.error("ERRO COMPLETO:", err);
       if (err.response) {
@@ -28,6 +33,8 @@ export const Previsoes = () => {
         console.error("Erro ao configurar requisição:", err.message);
       }
     }
+    console.log("Sistema iniciado");
+    setIsStarting(false);
   };
 
   const handlePredictionClick = async (event) => {
@@ -96,13 +103,13 @@ export const Previsoes = () => {
           </div>
         </Box>
         <Box sx={{ textAlign: 'center', mt: 4, '& > :not(style)': { m: 1 } }}>
-          <Button variant="contained" color="primary" href="/" onClick={handleStartSystemClick}>
+          <Button variant="contained" color="primary" href="/" onClick={handleStartSystemClick} loading={isStarting}>
             Iniciar o sistema
           </Button>
-          <Button variant="contained" color="primary" href="/" onClick={handlePredictionClick}>
+          <Button variant="contained" color="primary" href="/" onClick={handlePredictionClick} disabled={!hasStarted}>
             Predição
           </Button>
-          <Button variant="contained" color="primary" href="/" onClick={handleImageClick}>
+          <Button variant="contained" color="primary" href="/" onClick={handleImageClick} disabled={!hasStarted}>
             Imagem
           </Button>
         </Box>
